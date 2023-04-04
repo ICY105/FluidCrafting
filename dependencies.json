@@ -1,0 +1,18 @@
+{
+  "namespaces": [
+    "fluid"
+  ],
+  "dependencies": [
+    {
+      "name": "Lantern Load",
+      "url": "https://github.com/LanternMC/load"
+    }
+  ],
+  "append_function_tags": [
+    {
+      "tag": "load:load",
+      "value": "#fluid:load"
+    }
+  ],
+  "version": "v1.0"
+}
