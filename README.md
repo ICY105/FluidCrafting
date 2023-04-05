@@ -115,6 +115,14 @@ Function tags are called by FluidCrafting when it needs your datapack to do some
     Runs when a pipe has been updated. You can use this to change its model to display new connections.
 ```
 
+```
+#fluid:v1/pipe_can_connect
+  Executed as and at a tank.
+  Used to disable pipes connecting to a tank from certain sides.
+  #pipe.in fluid.data -> 0-5 indicating direction (up, down, north, south, east, west)
+  #pipe.out fluid.data -> 1 for can connect, 0 for cannot connect (defaults to can connect)
+```
+
 # How to use
 1. Install [LanternLoad](https://github.com/LanternMC/load) in your datapack
 2. Copy the `data/fluid` folder into your data pack
