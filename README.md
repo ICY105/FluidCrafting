@@ -22,20 +22,29 @@ This specifies how FluidCrafting intereprets NBT data, specifically for fluid-co
 ```
 Arbitarty Fluid:
     fluid:{id:"fluid_id", temperature: 0, color: 0, gas: 0b, name:'{"text":"name"}'}
-        id: id of fluid, used to check if fluids are equal. If you want a pack-exclusive fluid (no one else will use it), set the id to <pack:fluid>. If you want a cross-datapack fluid (like water), set to just <fluid>.
-        temperature: temp of fluid, in degrees C. Not used internally, but can be used by your datapack to gain information abount what the fluid is. For example, you can prevent a tank from storing hot fluids like lava.
-        color: Color of the liquid, in decimial format (same format as leather armor). Not used internally. Intended to be used for color shading UI elements.
+        id: id of fluid, used to check if fluids are equal. If you want a pack-exclusive fluid
+	    (no one else will use it), set the id to <pack:fluid>. If you want a cross-datapack fluid
+	    (like water), set to just <fluid>.
+        temperature: temp of fluid, in degrees C. Not used internally, but can be used by your 
+	    datapack to gain information abount what the fluid is. For example, you can prevent a 
+	    tank from storing hot fluids like lava.
+        color: Color of the liquid, in decimial format (same format as leather armor). Not used 
+	    internally. Intended to be used for color shading UI elements.
         gas: if this fluid is a gas, ie. Steam. Not used interanlly.
-        name: JSON name of fluid. Not used internally. Intended for any time your datapack needs to reference a fluid by name. Note: default vanilla fluids have missing translation strings using fallback.
+        name: JSON name of fluid. Not used internally. Intended for any time your datapack needs 
+	    to reference a fluid by name. Note: default vanilla fluids have missing translation 
+	    strings using fallback.
 ```
 
 ```
 Item:
     Item.tag.fluid{<fluid data>, storage: 1000, max_storage: 1000, fixed_storage: 0b}
-       <fluid data>: the NBT definition of a fluid, in the same level. ie. Item.tag.fluid{id:"fluid_id", ..., storage: 1000}. Don't include for empty fluid storage items.
+       <fluid data>: the NBT definition of a fluid, in the same level. 
+           ie. Item.tag.fluid{id:"fluid_id", ..., storage: 1000}. Don't include for empty fluid storage items.
        storage: how much fluid is currently stored
        max_storage: how much fluid can be stored
-       fixed_storage: if the item can only hold a specific amount of fluid (ie. exactly 1000/1000), or an arbitrary amount (ie. 420/1000)
+       fixed_storage: if the item can only hold a specific amount of fluid (ie. exactly 1000/1000),
+           or an arbitrary amount (ie. 420/1000)
 
 Armor Stand (tank):
     ArmorItems[3].fluids:[{<data>}, ...]
@@ -95,7 +104,8 @@ fluid.io.north
 fluid.io.south
 fluid.io.east
 fluid.io.west
-    Sets which tank slots interface with which sides, and whether they input or output. Postive numbers accept fluids, negative numbers expell fluid.
+    Sets which tank slots interface with which sides, and whether they input or output.
+    Postive numbers accept fluids, negative numbers expell fluid.
     Set the value to a binary encoded number representing which tank slots are enabled, ie:
     15 -> 1  1  1  1 -> all tanks are active
 	      1  2  4  8
@@ -106,7 +116,11 @@ fluid.io.west
 Selector tags indicate FluidCrafting should do something with the tagged entity.
 ```
 fluid.tank
-    Indicates entity should store fluids. Must be one of the supported entities: Armor Stand, [Glowing] Item Frame, Marker, Item Display. If you need a different entity, let me know. It must support arbitrary NBT data. Note that for most entities the NBT data is stored on the item, so replacing the item will clear the tank.
+    Indicates entity should store fluids. Must be one of the supported entities:
+        Armor Stand, [Glowing] Item Frame, Marker, Item Display. If you need a
+	different entity, let me know. It must support arbitrary NBT data.
+	Note that for most entities the NBT data is stored on the item, so replacing
+	the item will clear the tank.
 
 fluid.pipe
     Indicates entity is a pipe that should connect tanks.
@@ -136,10 +150,14 @@ Make sure to call these when needed!
 
 ```
 function fluid:v1/api/slot_io
-    Manages fluid IO via items. For example, providing a bucket of water will attempt to put 1000 units of water in a tank. Supports custom fluid container items (see NBT reference). This items can be visually updated via function tag.
+    Manages fluid IO via items. For example, providing a bucket of water will attempt to put
+        1000 units of water in a tank. Supports custom fluid container items (see NBT reference).
+	This items can be visually updated via function tag.
     > score #score #slot_io.in fluid.data: which tank slot to interact with
-    > storage fluid:io input:{input_slot:{<item>}, output_slot:{<item>}}: A copy of the slot used for the input item, and the slot used for the output item.
-    < storage fluid:io output:{input_slot:{<item>}, output_slot:{<item>}}: Returns modified copies of the provided items. Set the items slots to these values.
+    > storage fluid:io input:{input_slot:{<item>}, output_slot:{<item>}}: A copy of the slot used for
+        the input item, and the slot used for the output item.
+    < storage fluid:io output:{input_slot:{<item>}, output_slot:{<item>}}: Returns modified copies of
+        the provided items. Set the items slots to these values.
 ```
 
 # Function Tags
