@@ -27,5 +27,13 @@ scoreboard players add @s fluid.network_id.south 0
 scoreboard players add @s fluid.network_id.east 0
 scoreboard players add @s fluid.network_id.west 0
 
+# ensure data is initilized
+function fluid:v1.0/utils/get_fluids
+execute unless data storage fluid:io fluids[3] run data modify storage fluid:io fluids append value {}
+execute unless data storage fluid:io fluids[3] run data modify storage fluid:io fluids append value {}
+execute unless data storage fluid:io fluids[3] run data modify storage fluid:io fluids append value {}
+execute unless data storage fluid:io fluids[3] run data modify storage fluid:io fluids append value {}
+function fluid:v1.0/utils/store_fluids
+
 # update adjacent cables
 function fluid:v1.0/tank/update_adjacent

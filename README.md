@@ -32,16 +32,16 @@ Item:
     Remove fluid data for an item that store fluid but is empty.
 
 Armor Stand (tank):
-    ArmorItems[3].fluids:[{<data>},...]
+    ArmorItems[3].fluids:[{<data>}, ...]
 
 [Glowing] Item Frame (tank):
-    Item.tag.fluids:[{<data>},...]
+    Item.tag.fluids:[{<data>}, ...]
 
 Item Display (tank):
-    item.tag.fluids:[{<data>},...]
+    item.tag.fluids:[{<data>}, ...]
 
 Marker (tank):
-    data.fluids:[{<data>},...]
+    data.fluids:[{<data>}, ...]
     ...
 ```
 
@@ -51,8 +51,9 @@ fluid.data
     Used to pass data between functions and for storing arbitrary data on an entity.
 
     On a pipe, this is a binary encoded number of which sides are connected, ie:
-    63 -> 1  1  1  1  1  1 -> all sides are active
-	      32 16 8  4  2  1
+          up down north south east west
+    63 -> 1  1    1     1     1    1    -> all sides are active
+	      1  2    4     8     16   32
     This can be used to update the model to display connections when 
     function #fluid:v1/pipe_update is triggered.
 ```
