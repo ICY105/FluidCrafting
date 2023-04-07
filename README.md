@@ -134,6 +134,14 @@ like tanks remaining in the same network without being connected.
 Make sure to call these when needed!
 ```
 
+```
+function fluid:v1/api/slot_io
+    Manages fluid IO via items. For example, providing a bucket of water will attempt to put 1000 units of water in a tank. Supports custom fluid container items (see NBT reference). This items can be visually updated via function tag.
+    > score #score #slot_io.in fluid.data: which tank slot to interact with
+    > storage fluid:io input:{input_slot:{<item>}, output_slot:{<item>}}: A copy of the slot used for the input item, and the slot used for the output item.
+    < storage fluid:io output:{input_slot:{<item>}, output_slot:{<item>}}: Returns modified copies of the provided items. Set the items slots to these values.
+```
+
 # Function Tags
 Function tags are called by FluidCrafting when it needs your datapack to do something. You need to add a function to FluidCrafting's function tag list for each function.
 ```
