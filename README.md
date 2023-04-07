@@ -21,16 +21,21 @@ Depending on your use case, you may be able to use FluidCrafting's data format w
 This specifies how FluidCrafting intereprets NBT data, specifically for fluid-containing items.
 ```
 Arbitarty Fluid:
-    fluid:{id:"fluid_id", temperature: 0, color: <decimal color, ie. leather armor>, name:'{"text":"name"}'}
-
-    note: if you want a pack-exclusive fluid (no one else will use it), set the id to <pack:fluid>. If you want a cross-datapack fluid (like water), set to just <fluid>
+    fluid:{id:"fluid_id", temperature: 0, color: 0, gas: 0b, name:'{"text":"name"}'}
+        id: id of fluid, used to check if fluids are equal. If you want a pack-exclusive fluid (no one else will use it), set the id to <pack:fluid>. If you want a cross-datapack fluid (like water), set to just <fluid>.
+        temperature: temp of fluid, in degrees C. Not used internally, but can be used by your datapack to gain information abount what the fluid is. For example, you can prevent a tank from storing hot fluids like lava.
+        color: Color of the liquid, in decimial format (same format as leather armor). Not used internally. Intended to be used for color shading UI elements.
+        gas: if this fluid is a gas, ie. Steam. Not used interanlly.
+        name: JSON name of fluid. Not used internally. Intended for any time your datapack needs to reference a fluid by name. Note: default vanilla fluids have missing translation strings using fallback.
 ```
 
 ```
 Item:
-    Item.tag.fluid{<fluid data>, storage:<stored_amount>, max_storage:<max_amount>}
-
-    Remove fluid data for an item that store fluid but is empty.
+    Item.tag.fluid{<fluid data>, storage: 1000, max_storage: 1000, fixed_storage: 0b}
+       <fluid data>: the NBT definition of a fluid, in the same level. ie. Item.tag.fluid{id:"fluid_id", ..., storage: 1000}. Don't include for empty fluid storage items.
+       storage: how much fluid is currently stored
+       max_storage: how much fluid can be stored
+       fixed_storage: if the item can only hold a specific amount of fluid (ie. exactly 1000/1000), or an arbitrary amount (ie. 420/1000)
 
 Armor Stand (tank):
     ArmorItems[3].fluids:[{<data>}, ...]
@@ -157,10 +162,18 @@ Function tags are called by FluidCrafting when it needs your datapack to do some
     < score #out fluid.data: set to 0 deny fluid, defaults to 1
 ```
 
+```
+#fluid:v1/modify_fluid_item
+    Runs when a fluid containing item is modified: either adding fluid or removing it.
+    Use this to update the item's model, name, lore, etc.
+    <> storage fluid:io output.output_slot: the item. The fluid is contained in output.output_slot.tag.fluid
+```
+
 # How to use
 1. Install [LanternLoad](https://github.com/LanternMC/load) in your datapack
 2. Copy the `data/fluid` folder into your data pack
 3. Merge the contents of `/data/load/tags/functions/load.json` and your own `data/load/tags/functions/load.json`
 4. Implement the API as described above.
+5. [Optional] Add the contents of `assets/` to your resourcepack.
 
 For easier mangament of dependencies, check out my project [Datapack Build Manager](https://github.com/ICY105/DatapackBuildManager).

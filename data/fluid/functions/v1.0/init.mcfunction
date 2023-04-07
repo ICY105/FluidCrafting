@@ -44,6 +44,8 @@ scoreboard players set #cons.20 fluid.data 20
 scoreboard players set #cons.32 fluid.data 32
 scoreboard players set #cons.64 fluid.data 64
 scoreboard players set #cons.128 fluid.data 128
+scoreboard players set #cons.1000 fluid.data 1000
 
 # storage definition
 data merge storage fluid:io {fluids:[], fluids2:[], fluid:{}, fluid2:{}, id:"", input:{input_slot:{}, output_slot:{}}, output:{input_slot:{}, output_slot:{}}}
+function fluid:v1.0/utils/init_fluid_definitions
