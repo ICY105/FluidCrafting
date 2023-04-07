@@ -7,10 +7,11 @@ This library manages:
   - Scoreboard and NBT definitions for storing fluid
   - Up to 4 different fluid types can be stores per block
   - Supporting functions for managing fluids, such as Inputing/Outputting fluids with items (ie bucket)
-* Designating items as holding a fluid
 * Designating block marking entities as pipes that can transfer fluids
+  - Automaticly link to tanks
   - Automatic fluid transfering between enabled blocks
   - Model Data for easily displaying connections
+* Designating items as holding a fluid
 
 This is an embedded library, so you package it inside your datapack as opposed to having a separate download. Requires [LanternLoad](https://github.com/LanternMC/load) to operate.
 
@@ -60,7 +61,7 @@ fluid.data
 
 ```
 fluid.transfer_rate
-    Caps how much fluid can be pump in/out of a tank, and how much fluid a pipe network can handel.
+    Caps how much fluid can be pump in/out of a tank, and how much fluid a pipe network can handle.
     The rate is limited by the lowest rate in the entire network.
 
     Make sure this score is 1+ on all pipes and tanks.
@@ -108,6 +109,25 @@ fluid.pipe
 
 # Function Calls
 You make function calls from your datapack whenever you want FluidCrafting to execute a specific task.
+```
+function fluid:v1/api/init_pipe
+  Call on a new pipe to initialize its connections
+
+function fluid:v1/api/init_tank
+  Call on a new tank to initialize its connections
+```
+
+```
+function fluid:v1/api/break_pipe
+  Call on a pipe when broken to remove its connections
+
+function fluid:v1/api/break_tank
+  Call on a tank when broken to remove its connections
+  
+Failure to call these breaking functions has negative side-effects
+like tanks remaining in the same network without being connected.
+Make sure to call these when needed!
+```
 
 # Function Tags
 Function tags are called by FluidCrafting when it needs your datapack to do something. You need to add a function to FluidCrafting's function tag list for each function.
@@ -122,6 +142,11 @@ Function tags are called by FluidCrafting when it needs your datapack to do some
   Used to disable pipes connecting to a tank from certain sides.
   #pipe.in fluid.data -> 0-5 indicating direction (up, down, north, south, east, west)
   #pipe.out fluid.data -> 1 for can connect, 0 for cannot connect (defaults to can connect)
+```
+
+```
+#fluid:v1/tank_fluid_update
+    Runs when a the fluid level of a tank has changed. You can use this to update display information.
 ```
 
 # How to use

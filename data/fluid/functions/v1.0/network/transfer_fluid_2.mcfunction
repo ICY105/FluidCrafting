@@ -64,3 +64,7 @@ execute if score #network.dest.tank fluid.data matches 0 run scoreboard players 
 execute if score #network.dest.tank fluid.data matches 1 run scoreboard players operation @s fluid.storage.1 += #network.transfer_amount fluid.data
 execute if score #network.dest.tank fluid.data matches 2 run scoreboard players operation @s fluid.storage.2 += #network.transfer_amount fluid.data
 execute if score #network.dest.tank fluid.data matches 3 run scoreboard players operation @s fluid.storage.3 += #network.transfer_amount fluid.data
+
+execute if score #network.dest.tank fluid.data matches 0..3 run function #fluid:v1/tank_fluid_update
+execute if score #network.dest.tank fluid.data matches 0..3 run scoreboard players set #network.updated fluid.data 1
+
