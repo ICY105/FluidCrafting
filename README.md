@@ -149,6 +149,14 @@ Function tags are called by FluidCrafting when it needs your datapack to do some
     Runs when a the fluid level of a tank has changed. You can use this to update display information.
 ```
 
+```
+#fluid:v1/tank_fluid_accept
+    Runs as a tank when a fluid is requesting to be pumped in. Use this to filter what fluids are accepted
+    > storage fluid:io fluid: the fluid being pumped in
+    > score #network.tank fluid.data: the slot the tank is in
+    < score #out fluid.data: set to 0 deny fluid, defaults to 1
+```
+
 # How to use
 1. Install [LanternLoad](https://github.com/LanternMC/load) in your datapack
 2. Copy the `data/fluid` folder into your data pack
