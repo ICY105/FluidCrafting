@@ -14,8 +14,8 @@ execute if score #success fluid.data matches 0 if score #slot_io.input_item flui
 execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -3 run data modify storage fluid:io output.output_slot.tag.fluid set from storage fluid:io fluid
 execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -3 run data modify storage fluid:io output.output_slot.tag.fluid merge value {storage:333, max_storage:333}
 execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -3 run data modify storage fluid:io output.output_slot.tag.CustomPotionColor set from storage fluid:io fluid.color
-execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -3 run data modify block -30000000 0 3202 Text1 set value '{"translate":"item.fluidcrafting.generic_bottle","fallback":"Bottle of %s","with":[{"nbt":"fluid.name","storage":"fluid:io","interpret":true}],"italic":false}'
-execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -3 run data modify storage fluid:io output.output_slot.tag.display.Name set from block -30000000 0 3202 Text1
+execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -3 run data modify block -30000000 0 3202 front_text.messages[0] set value '{"translate":"item.fluidcrafting.generic_bottle","fallback":"Bottle of %s","with":[{"nbt":"fluid.name","storage":"fluid:io","interpret":true}],"italic":false}'
+execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -3 run data modify storage fluid:io output.output_slot.tag.display.Name set from block -30000000 0 3202 front_text.messages[0]
 execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -3 run scoreboard players set #success fluid.data 1
 
 # bowl
