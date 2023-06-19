@@ -1,5 +1,5 @@
 # FluidCrafting
-Custom fluid mechanics library for Minecraft Datapacks. This does not add in-world fluids, but does add systems for storing, transporting, and using custom fluids in blocks and items. See [Mechanization](https://github.com/ICY105/Mechanization) (implementation WIP) for examples of how this is used in practice. This is a very advanced library. Don't attempt using this unless you know what you're doing. If you need practice, try using the [DatapackEnergy](https://github.com/ICY105/DatapackEnergy) library. It's very similiar, but less complicated as it doesn't involve NBT definitions.
+Custom fluid mechanics library for Minecraft Datapacks. This does not add in-world fluids, but does add systems for storing, transporting, and using custom fluids in blocks and items. See [Mechanization](https://github.com/ICY105/Mechanization) for examples of how this is used in practice. This is a very advanced library. Don't attempt using this unless you know what you're doing. If you need practice, try using the [DatapackEnergy](https://github.com/ICY105/DatapackEnergy) library. It's very similiar, but less complicated as it doesn't involve NBT definitions.
 
 This library manages:
 * NBT definitions for fluids
