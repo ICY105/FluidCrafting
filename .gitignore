@@ -2,3 +2,5 @@
 .DS_Store?
 *.py
 **/debug/**
+*.bat
+build-output/*
