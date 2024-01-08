@@ -1,5 +1,6 @@
 
 function fluid:v1.3/utils/get_fluids
+tag @s add fluid.current
 
 scoreboard players set #network.updated fluid.data 0
 scoreboard players operation #network.transfer_rate fluid.data = @s fluid.transfer_rate
@@ -36,3 +37,4 @@ execute if score #network.io fluid.data matches ..-1 unless score #network.netwo
 
 function fluid:v1.3/utils/store_fluids
 execute if score #network.updated fluid.data matches 1 run function #fluid:v1/tank_fluid_update
+tag @s remove fluid.current
