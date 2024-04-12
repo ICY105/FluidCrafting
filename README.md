@@ -38,26 +38,29 @@ Arbitarty Fluid:
 
 ```
 Item:
-    Item.tag.fluid{<fluid data>, storage: 1000, max_storage: 1000, fixed_storage: 0b}
+    Item.components."minecraft:custom_data".fluid{<fluid data>, storage: 1000, max_storage: 1000, fixed_storage: 0b}
        <fluid data>: the NBT definition of a fluid, in the same level. 
-           ie. Item.tag.fluid{id:"fluid_id", ..., storage: 1000}. Don't include for empty fluid storage items.
+           ie. Item.components."minecraft:custom_data".fluid{id:"fluid_id", ..., storage: 1000}. Don't include for empty fluid storage items.
        storage: how much fluid is currently stored
        max_storage: how much fluid can be stored
        fixed_storage: if the item can only hold a specific amount of fluid (ie. exactly 1000/1000),
            or an arbitrary amount (ie. 420/1000)
+```
+
+```
+Entities: this is where fluid data is stored in a tank. You can modify this to add or change a fluid.
 
 Armor Stand (tank):
-    ArmorItems[3].fluids:[{<data>}, ...]
+    ArmorItems[3].components."minecraft:custom_data".fluids[{<data>}, ...]
 
 [Glowing] Item Frame (tank):
-    Item.tag.fluids:[{<data>}, ...]
+    Item.components."minecraft:custom_data".fluids[{<data>}, ...]
 
 Item Display (tank):
-    item.tag.fluids:[{<data>}, ...]
+    item.components."minecraft:custom_data".fluids[{<data>}, ...]
 
 Marker (tank):
-    data.fluids:[{<data>}, ...]
-    ...
+    data.fluids[{<data>}, ...]
 ```
 
 # Scoreboard Data
@@ -152,7 +155,7 @@ Make sure to call these when needed!
 function fluid:v1/api/slot_io
     Manages fluid IO via items. For example, providing a bucket of water will attempt to put
         1000 units of water in a tank. Supports custom fluid container items (see NBT reference).
-	This items can be visually updated via function tag.
+	Items can be visually updated via function tag.
     > score #score #slot_io.in fluid.data: which tank slot to interact with
     > storage fluid:io input:{input_slot:{<item>}, output_slot:{<item>}}: A copy of the slot used for
         the input item, and the slot used for the output item.
@@ -192,7 +195,7 @@ Function tags are called by FluidCrafting when it needs your datapack to do some
 #fluid:v1/modify_fluid_item
     Runs when a fluid containing item is modified: either adding fluid or removing it.
     Use this to update the item's model, name, lore, etc.
-    <> storage fluid:io output.output_slot: the item. The fluid is contained in output.output_slot.tag.fluid
+    <> storage fluid:io output.output_slot: the item. The fluid is contained in output.output_slot.components."minecraft:custom_data".fluid
 ```
 
 # How to use

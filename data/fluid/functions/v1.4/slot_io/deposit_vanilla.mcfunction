@@ -14,7 +14,7 @@ execute if score #slot_io.input_item fluid.data matches 2..5 if score #success f
 execute if score #slot_io.input_item fluid.data matches 2..5 if score #success fluid.data matches 1 if score #slot_io.input_item fluid.data matches 3 if score #slot_io.storage fluid.data matches 1.. unless data storage fluid:io fluid{id:"lava"} run scoreboard players set #success fluid.data 0
 execute if score #slot_io.input_item fluid.data matches 2..5 if score #success fluid.data matches 1 if score #slot_io.input_item fluid.data matches 4 if score #slot_io.storage fluid.data matches 1.. unless data storage fluid:io fluid{id:"milk"} run scoreboard players set #success fluid.data 0
 execute if score #slot_io.input_item fluid.data matches 2..5 if score #success fluid.data matches 1 if score #slot_io.input_item fluid.data matches 5 if score #slot_io.storage fluid.data matches 1.. unless data storage fluid:io fluid{id:"powder_snow"} run scoreboard players set #success fluid.data 0
-execute if score #slot_io.input_item fluid.data matches 2..5 if score #success fluid.data matches 1 if score #slot_io.output_count fluid.data matches 0 run data modify storage fluid:io output.output_slot set value {id:"minecraft:bucket", Count:1b}
+execute if score #slot_io.input_item fluid.data matches 2..5 if score #success fluid.data matches 1 if score #slot_io.output_count fluid.data matches 0 run data modify storage fluid:io output.output_slot set value {id:"minecraft:bucket", count:1b}
 
 # glass bottle
 execute if score #slot_io.input_item fluid.data matches 9..10 if score #success fluid.data matches 0 run scoreboard players set #success fluid.data 1
@@ -22,7 +22,7 @@ execute if score #slot_io.input_item fluid.data matches 9..10 if score #success 
 execute if score #slot_io.input_item fluid.data matches 9..10 if score #success fluid.data matches 1 if score #slot_io.output_count fluid.data matches 1.. unless data storage fluid:io output.output_slot{id:"minecraft:glass_bottle"} run scoreboard players set #success fluid.data 0
 execute if score #slot_io.input_item fluid.data matches 9..10 if score #success fluid.data matches 1 if score #slot_io.input_item fluid.data matches 9 if score #slot_io.storage fluid.data matches 1.. unless data storage fluid:io fluid{id:"honey"} run scoreboard players set #success fluid.data 0
 execute if score #slot_io.input_item fluid.data matches 9..10 if score #success fluid.data matches 1 if score #slot_io.input_item fluid.data matches 10 if score #slot_io.storage fluid.data matches 1.. unless data storage fluid:io fluid{id:"water"} run scoreboard players set #success fluid.data 0
-execute if score #slot_io.input_item fluid.data matches 9..10 if score #success fluid.data matches 1 if score #slot_io.output_count fluid.data matches 0 run data modify storage fluid:io output.output_slot set value {id:"minecraft:glass_bottle", Count:1b}
+execute if score #slot_io.input_item fluid.data matches 9..10 if score #success fluid.data matches 1 if score #slot_io.output_count fluid.data matches 0 run data modify storage fluid:io output.output_slot set value {id:"minecraft:glass_bottle", count:1b}
 
 # bowl
 execute if score #slot_io.input_item fluid.data matches 6..8 if score #success fluid.data matches 0 run scoreboard players set #success fluid.data 1
@@ -31,7 +31,7 @@ execute if score #slot_io.input_item fluid.data matches 6..8 if score #success f
 execute if score #slot_io.input_item fluid.data matches 6..8 if score #success fluid.data matches 1 if score #slot_io.input_item fluid.data matches 6 if score #slot_io.storage fluid.data matches 1.. unless data storage fluid:io fluid{id:"mushroom_stew"} run scoreboard players set #success fluid.data 0
 execute if score #slot_io.input_item fluid.data matches 6..8 if score #success fluid.data matches 1 if score #slot_io.input_item fluid.data matches 7 if score #slot_io.storage fluid.data matches 1.. unless data storage fluid:io fluid{id:"rabbit_stew"} run scoreboard players set #success fluid.data 0
 execute if score #slot_io.input_item fluid.data matches 6..8 if score #success fluid.data matches 1 if score #slot_io.input_item fluid.data matches 8 if score #slot_io.storage fluid.data matches 1.. unless data storage fluid:io fluid{id:"beetroot_soup"} run scoreboard players set #success fluid.data 0
-execute if score #slot_io.input_item fluid.data matches 6..8 if score #success fluid.data matches 1 if score #slot_io.output_count fluid.data matches 0 run data modify storage fluid:io output.output_slot set value {id:"minecraft:bowl", Count:1b}
+execute if score #slot_io.input_item fluid.data matches 6..8 if score #success fluid.data matches 1 if score #slot_io.output_count fluid.data matches 0 run data modify storage fluid:io output.output_slot set value {id:"minecraft:bowl", count:1b}
 
 # store data
 execute if score #success fluid.data matches 1 unless data storage fluid:io fluid.id run data modify storage fluid:io fluid set from storage fluid:io fluid2

@@ -7,7 +7,7 @@ execute if data storage fluid:io input.input_slot{id:"minecraft:mushroom_stew"} 
 execute if data storage fluid:io input.input_slot{id:"minecraft:rabbit_stew"} run scoreboard players set #slot_io.input_item fluid.data 7
 execute if data storage fluid:io input.input_slot{id:"minecraft:beetroot_soup"} run scoreboard players set #slot_io.input_item fluid.data 8
 execute if data storage fluid:io input.input_slot{id:"minecraft:honey_bottle"} run scoreboard players set #slot_io.input_item fluid.data 9
-execute if data storage fluid:io input.input_slot{id:"minecraft:potion"}.tag{Potion:"minecraft:water"} run scoreboard players set #slot_io.input_item fluid.data 10
+execute if data storage fluid:io input.input_slot{id:"minecraft:potion"}.components."minecraft:potion_contents"{potion:"minecraft:water"} run scoreboard players set #slot_io.input_item fluid.data 10
 
 execute if data storage fluid:io input.input_slot{id:"minecraft:bucket"} run scoreboard players set #slot_io.input_item fluid.data -2
 execute if data storage fluid:io input.input_slot{id:"minecraft:glass_bottle"} run scoreboard players set #slot_io.input_item fluid.data -3

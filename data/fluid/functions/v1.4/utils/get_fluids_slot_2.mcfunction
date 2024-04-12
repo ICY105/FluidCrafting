@@ -4,8 +4,8 @@
 #
 data modify storage fluid:io fluids2 set value []
 
-execute if entity @s[type=minecraft:armor_stand] run data modify storage fluid:io fluids2 set from entity @s ArmorItems[3].tag.fluids
-execute if entity @s[type=minecraft:item_frame] run data modify storage fluid:io fluids2 set from entity @s Item.tag.fluids
-execute if entity @s[type=minecraft:glow_item_frame] run data modify storage fluid:io fluids2 set from entity @s Item.tag.fluids
-execute if entity @s[type=minecraft:item_display] run data modify storage fluid:io fluids2 set from entity @s item.tag.fluids
+execute if entity @s[type=minecraft:armor_stand] run data modify storage fluid:io fluids2 set from entity @s ArmorItems[3].components."minecraft:custom_data".fluids
+execute if entity @s[type=minecraft:item_frame] run data modify storage fluid:io fluids2 set from entity @s Item.components."minecraft:custom_data".fluids
+execute if entity @s[type=minecraft:glow_item_frame] run data modify storage fluid:io fluids2 set from entity @s Item.components."minecraft:custom_data".fluids
+execute if entity @s[type=minecraft:item_display] run data modify storage fluid:io fluids2 set from entity @s item.components."minecraft:custom_data".fluids
 execute if entity @s[type=minecraft:marker] run data modify storage fluid:io fluids2 set from entity @s data.fluids

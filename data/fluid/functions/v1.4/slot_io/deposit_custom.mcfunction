@@ -12,12 +12,12 @@ scoreboard players operation #slot_io.storage_left fluid.data -= #slot_io.input_
 
 execute if score #success fluid.data matches 1 run data modify storage fluid:io output.output_slot set from storage fluid:io output.input_slot
 execute if score #success fluid.data matches 1 run data remove storage fluid:io output.input_slot
-execute if score #success fluid.data matches 1 if score #slot_io.storage_left fluid.data matches 0 run data remove storage fluid:io output.output_slot.tag.fluid.id
-execute if score #success fluid.data matches 1 if score #slot_io.storage_left fluid.data matches 0 run data remove storage fluid:io output.output_slot.tag.fluid.temperature
-execute if score #success fluid.data matches 1 if score #slot_io.storage_left fluid.data matches 0 run data remove storage fluid:io output.output_slot.tag.fluid.color
-execute if score #success fluid.data matches 1 if score #slot_io.storage_left fluid.data matches 0 run data remove storage fluid:io output.output_slot.tag.fluid.gas
-execute if score #success fluid.data matches 1 if score #slot_io.storage_left fluid.data matches 0 run data remove storage fluid:io output.output_slot.tag.fluid.name
-execute if score #success fluid.data matches 1 store result storage fluid:io output.output_slot.tag.fluid.storage int 1 run scoreboard players get #slot_io.storage_left fluid.data
+execute if score #success fluid.data matches 1 if score #slot_io.storage_left fluid.data matches 0 run data remove storage fluid:io output.output_slot.components."minecraft:custom_data".fluid.id
+execute if score #success fluid.data matches 1 if score #slot_io.storage_left fluid.data matches 0 run data remove storage fluid:io output.output_slot.components."minecraft:custom_data".fluid.temperature
+execute if score #success fluid.data matches 1 if score #slot_io.storage_left fluid.data matches 0 run data remove storage fluid:io output.output_slot.components."minecraft:custom_data".fluid.color
+execute if score #success fluid.data matches 1 if score #slot_io.storage_left fluid.data matches 0 run data remove storage fluid:io output.output_slot.components."minecraft:custom_data".fluid.gas
+execute if score #success fluid.data matches 1 if score #slot_io.storage_left fluid.data matches 0 run data remove storage fluid:io output.output_slot.components."minecraft:custom_data".fluid.name
+execute if score #success fluid.data matches 1 store result storage fluid:io output.output_slot.components."minecraft:custom_data".fluid.storage int 1 run scoreboard players get #slot_io.storage_left fluid.data
 execute if score #success fluid.data matches 1 run function #fluid:v1/modify_fluid_item
 
 # store data
