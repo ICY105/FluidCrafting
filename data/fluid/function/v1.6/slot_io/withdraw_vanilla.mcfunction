@@ -4,7 +4,7 @@ scoreboard players set #success fluid.data 0
 # bucket
 execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -2 if data storage fluid:io fluid{id:"water"} store success score #success fluid.data run data modify storage fluid:io output.output_slot set value {id:"minecraft:water_bucket",count:1b}
 execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -2 if data storage fluid:io fluid{id:"lava"} store success score #success fluid.data run data modify storage fluid:io output.output_slot set value {id:"minecraft:lava_bucket",count:1b}
-execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -2 if data storage fluid:io fluid{id:"milk"} store success score #success fluid.data run data modify storage fluid:io output.output_slot set value {id:"minecraft:milk",count:1b}
+execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -2 if data storage fluid:io fluid{id:"milk"} store success score #success fluid.data run data modify storage fluid:io output.output_slot set value {id:"minecraft:milk_bucket",count:1b}
 execute if score #success fluid.data matches 0 if score #slot_io.input_item fluid.data matches -2 if data storage fluid:io fluid{id:"powder_snow"} store success score #success fluid.data run data modify storage fluid:io output.output_slot set value {id:"minecraft:powder_snow_bucket",count:1b}
 
 # glass bottle

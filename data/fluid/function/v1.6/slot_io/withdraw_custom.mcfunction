@@ -1,7 +1,6 @@
 
 # modify item data
 data modify storage fluid:io output.output_slot set from storage fluid:io output.input_slot
-data remove storage fluid:io output.input_slot
 
 data modify storage fluid:io output.output_slot.components."minecraft:custom_data".fluid merge from storage fluid:io fluid
 execute store result storage fluid:io output.output_slot.components."minecraft:custom_data".fluid.storage int 1 run scoreboard players get #slot_io.output_amount fluid.data
