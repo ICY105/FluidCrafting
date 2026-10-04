@@ -1,28 +1,16 @@
-[
-  {
-    "condition": "minecraft:value_check",
-    "value": {
-      "type": "minecraft:score",
-      "target": "this",
-      "score": "fluid.queue"
+{
+  "type": "minecraft:int_value_check",
+  "value": {
+    "type": "minecraft:score",
+    "target": "this",
+    "score": "fluid.queue"
+  },
+  "test": {
+    "type": "minecraft:score",
+    "target": {
+      "type": "minecraft:fixed",
+      "name": "#progress"
     },
-    "range": {
-      "min": {
-        "type": "minecraft:score",
-        "target": {
-        "type": "minecraft:fixed",
-          "name": "#progress"
-        },
-        "score": "fluid.data"
-      },
-      "max": {
-        "type": "minecraft:score",
-        "target": {
-          "type": "minecraft:fixed",
-          "name": "#progress"
-        },
-        "score": "fluid.data"
-      }
-    }
+    "score": "fluid.data"
   }
-]
+}
